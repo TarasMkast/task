@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="ua">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Test</title>
+    <link rel = "stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+</head>
+<body>
+{% load easy_maps_tags %}
+{% easy_map location 600 500 %}
+
+  <form action="{% url 'main' %}"  method="POST">
+        {% csrf_token %}
+    <table>
+        {{ form }}
+    </table>
+    <input type="submit" value="Search" >
+</form>
+
+<p><ul> {% for plac in place %}
+                       <li>{{ plac }}</li>
+                        {% endfor %}
+                  </ul></p>
+
+
+<form action="{% url 'next' %}" method="post">
+    {% csrf_token %}
+    <input type="submit" value="Next page">
+</form>
+
+
+
+</body>
+</html>
