@@ -8,8 +8,8 @@ from .form import *
 
 class Service:
 
-    def __init__(self, addres, type_place):
-        self.addres = addres
+    def __init__(self, address, type_place):
+        self.address = address
         self.type_place = type_place
 
     try:
@@ -21,9 +21,9 @@ class Service:
             print("Error", e)
 
     def location(self, key=API_KEY):
-        addres = self.addres
+        address = self.address
         serviceurl = 'https://maps.googleapis.com/maps/api/geocode/json?parameters'
-        extend = {'address': addres, 'key': key}
+        extend = {'address': address, 'key': key}
         r = requests.get(serviceurl, params=extend)
         todos = json.loads(r.text)
         rs = todos['results']
@@ -33,13 +33,13 @@ class Service:
         location = (loclat + ', ' + loclng)
         return location
 
-    def get_places(self, gmap = gmap):
+    def get_places(self, gmap=gmap):
         type_place = self.type_place
         location = self.location()
         places_result = gmap.places_nearby(location=location, radius=1000, open_now=False, type=type_place)
         return places_result
 
-    def get_distance(self, places_result = None, key=API_KEY, gmap = gmap):
+    def get_distance(self, places_result=None, key=API_KEY, gmap=gmap):
         location = self.location()
         if places_result is None:
             places_result = self.get_places()
@@ -64,7 +64,7 @@ class Service:
 
         return data
 
-    def next_page(self, gmap = gmap):
+    def next_page(self, gmap=gmap):
         service = Service(PlaceForm.address, PlaceForm.type_place)
         a = service.get_places()
         try:
@@ -76,13 +76,6 @@ class Service:
             raise Http404("Дані відсутні, поверніть назад на головну сторінку ")
 
         return places_result
-
-
-
-
-
-
-
 
 
 
