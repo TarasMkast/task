@@ -1,0 +1,5 @@
+venv/
+__pycache__/
+.idea/
+findapi/__pycache__/
+findplace/__pycache__/
