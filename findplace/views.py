@@ -1,6 +1,7 @@
 from django.shortcuts import render
 from .service import Service
 from .form import PlaceForm
+from .models import History
 
 
 def main(request):
@@ -8,6 +9,9 @@ def main(request):
     if request.method == "POST":
         PlaceForm.type_place = request.POST.get('type_place')
         PlaceForm.address = request.POST.get('address')
+        PlaceForm.email_user = request.POST.get('email')
+        a = History(email=PlaceForm.email_user, type_object=PlaceForm.type_place)
+        a.save()
         service = Service(PlaceForm.address, PlaceForm.type_place)
         placeform = PlaceForm()
         datacontex = {'place': service.get_distance(), 'location': service.location(), 'form': placeform}
