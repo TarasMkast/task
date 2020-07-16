@@ -8,5 +8,5 @@ class History(models.Model):
 
     class Meta:
         verbose_name = 'Історія пошуку'
-        verbose_name_plural = 'Історії пошуку'
+        verbose_name_plural = 'Історія пошуку'
         ordering = ['-published']
