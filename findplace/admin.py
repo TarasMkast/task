@@ -1,6 +1,6 @@
 from django.contrib import admin
 
-from findplace.models import History
+from findplace.models import History, Objtype
 
 
 class BdAdmin(admin.ModelAdmin):
@@ -10,3 +10,5 @@ class BdAdmin(admin.ModelAdmin):
 
 
 admin.site.register(History, BdAdmin)
+admin.site.register(Objtype)
+

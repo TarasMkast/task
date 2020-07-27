@@ -24,15 +24,18 @@ SECRET_KEY = '+a0$90_kqe2ogfkc^g+f39m2s!&efywfu@1(kdv1@l)87&*$ov'
 
 EASY_MAPS_GOOGLE_KEY = 'AIzaSyDAsI_DWSuJT1VkzsHS0sdcunUwjdkCUQo'
 
+API_KEY = 'AIzaSyDAsI_DWSuJT1VkzsHS0sdcunUwjdkCUQo'
+
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
 
 INSTALLED_APPS = [
+    'findplace',
     'easy_maps',
     'django.contrib.admin',
     'django.contrib.auth',
@@ -111,7 +114,7 @@ AUTH_PASSWORD_VALIDATORS = [
 # Internationalization
 # https://docs.djangoproject.com/en/3.0/topics/i18n/
 
-LANGUAGE_CODE = 'en-us'
+LANGUAGE_CODE = 'ru-ru'
 
 TIME_ZONE = 'UTC'
 

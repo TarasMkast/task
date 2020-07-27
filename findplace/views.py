@@ -1,4 +1,6 @@
 from django.shortcuts import render
+
+from django.shortcuts import render
 from .service import Service
 from .form import PlaceForm
 from .models import History
