@@ -1,6 +1,6 @@
 from django.contrib import admin
 
-from findplace.models import History, Objtype
+from .models import History, Objtype
 
 
 class BdAdmin(admin.ModelAdmin):

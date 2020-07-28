@@ -19,7 +19,7 @@ objtypes = (('cafe', 'Cafe'),
 
 
 class Objtype(models.Model):
-    objtype = models.CharField(max_length=20, choices=objtypes)
+    objtype = models.CharField(primary_key=True, max_length=20)
 
     def __str__(self):
         return self.objtype

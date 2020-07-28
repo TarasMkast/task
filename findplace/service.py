@@ -16,7 +16,6 @@ class Service:
         self.API_KEY = api_key
 
     try:
-        #API_KEY = 'AIzaSyDAsI_DWSuJT1VkzsHS0sdcunUwjdkCUQo'
         gmap = googlemaps.Client(key=API_KEY)
     except requests.ConnectionError as e:
             print()
